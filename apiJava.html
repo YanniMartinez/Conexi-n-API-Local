@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" /> <!--Las etiquetas metas no tienen cierre, pero por buenas prácticas es mejor cerrarlas, en este caso e sel /> -->
+    <title>Conectando API</title><!-- Como su nombre lo dice, nos permite poner el titulo de la página -->
+        
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form action="" id="formLogin">
+        <p>
+            <label for="username"></label>
+            <input type="email" name="email" id="email">
+            <span id="emailError"></span>
+        </p>
+
+        <p>
+            <label for="password"></label>
+            <input type="password" name="password" id="password">
+            <span id="passwordError"></span>
+        </p>
+        <p>
+            <button type="submit">Iniciar sesión</button>
+        </p>
+
+    </form>
+
+    <script src="conexionApi.js"></script>
+</body>
+
+
+</html>
