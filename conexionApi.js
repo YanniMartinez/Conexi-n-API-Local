@@ -56,6 +56,9 @@ formLogin.addEventListener("submit", (e) =>{
             else{
                 //Indica que los datos son incorrectos
                 emailError.textContent = "Usuario o contraseña incorrecta";
+
+                //Removiendo del local storage
+                localStorage.removeItem('token');
             }
         })
     }
