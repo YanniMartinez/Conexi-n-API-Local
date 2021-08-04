@@ -40,7 +40,7 @@ formLogin.addEventListener("submit", (e) =>{
                 'Content-Type': 'application/json'
             }
         }).then( resp => {
-            token = resp.headers.get("Authorization");
+            token = resp.headers.get('Authorization');
             console.log(token);
             //Si la respuesta contiene el Bearear entonces si es un token valido
             if(token.includes('Bearer')){
