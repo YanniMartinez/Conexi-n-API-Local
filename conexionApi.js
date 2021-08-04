@@ -37,6 +37,7 @@ formLogin.addEventListener("submit", (e) =>{
                 password: password.value
             })
         }).then((resp ) => resp.text()).then(token =>{
+            //Si la respuesta contiene el Bearear entonces si es un token valido
             if(token.includes('Bearer')){
                 console.log(token);
                 //Almacena en el local storage
@@ -45,10 +46,17 @@ formLogin.addEventListener("submit", (e) =>{
                 url = window.location;
                 console.log(url); //imprime la localizacion en la que estamos ubicados
 
-                //Construyendo nuestro path
-                //location.href= window.location + "success.html";
+                //Construyendo nuestro path, es decir la ruta en donde estamos
+                const path = url.pathname.substring(0, url.pathname.lastIndexOf('/') + 1);
+                //El substring hace un recorte del texto, va del inicio hasta el ultimo "/" y devolverá ese indice
+
+                //Lo redireccionamos a la otra pagina
+                location.href= path + "success.html";
             }
-            
+            else{
+                //Indica que los datos son incorrectos
+                emailError.textContent = "Usuario o contraseña incorrecta";
+            }
         })
     }
 })
