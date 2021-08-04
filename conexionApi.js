@@ -43,7 +43,7 @@ formLogin.addEventListener("submit", (e) =>{
             token = resp.headers.get('Authorization');
             console.log(token);
             //Si la respuesta contiene el Bearear entonces si es un token valido
-            if(token.includes('Bearer')){
+            if(token && token.includes('Bearer')){
                 console.log(token);
                 //Almacena en el local storage
                 localStorage.setItem('token',token);
