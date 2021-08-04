@@ -36,12 +36,19 @@ formLogin.addEventListener("submit", (e) =>{
                 username: email.value,
                 password: password.value
             })
-        }).then((resp ) => {
-            /* console.log("resp"); */
-            console.log(resp.status); //Manda el tipo de codigo http
-            //Si manda 403 es prohibido, el 200 es que todo está bien y es perfecto
+        }).then((resp ) => resp.text()).then(token =>{
+            if(token.includes('Bearer')){
+                console.log(token);
+                //Almacena en el local storage
+                localStorage.setItem('token',token);
+                //Obteniendo url en donde estamos situados
+                url = window.location;
+                console.log(url); //imprime la localizacion en la que estamos ubicados
 
-            /*Pero debemos sacar el autorization del header y del header */
+                //Construyendo nuestro path
+                //location.href= window.location + "success.html";
+            }
+            
         })
     }
 })
